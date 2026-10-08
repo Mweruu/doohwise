@@ -14,7 +14,174 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bills: {
+        Row: {
+          amount: number
+          created_at: string
+          due_date: string
+          frequency: string
+          id: string
+          name: string
+          paid: boolean
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          due_date: string
+          frequency?: string
+          id?: string
+          name: string
+          paid?: boolean
+          user_id?: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          due_date?: string
+          frequency?: string
+          id?: string
+          name?: string
+          paid?: boolean
+          user_id?: string
+        }
+        Relationships: []
+      }
+      budgets: {
+        Row: {
+          amount: number
+          category: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          category: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Update: {
+          amount?: number
+          category?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      goals: {
+        Row: {
+          created_at: string
+          deadline: string | null
+          id: string
+          name: string
+          saved: number
+          target: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          deadline?: string | null
+          id?: string
+          name: string
+          saved?: number
+          target: number
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          deadline?: string | null
+          id?: string
+          name?: string
+          saved?: number
+          target?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          currency: string
+          display_name: string | null
+          id: string
+          main_goal: string | null
+          monthly_income: number
+          needs_pct: number
+          onboarded: boolean
+          savings_pct: number
+          savings_target: number
+          wants_pct: number
+        }
+        Insert: {
+          created_at?: string
+          currency?: string
+          display_name?: string | null
+          id: string
+          main_goal?: string | null
+          monthly_income?: number
+          needs_pct?: number
+          onboarded?: boolean
+          savings_pct?: number
+          savings_target?: number
+          wants_pct?: number
+        }
+        Update: {
+          created_at?: string
+          currency?: string
+          display_name?: string | null
+          id?: string
+          main_goal?: string | null
+          monthly_income?: number
+          needs_pct?: number
+          onboarded?: boolean
+          savings_pct?: number
+          savings_target?: number
+          wants_pct?: number
+        }
+        Relationships: []
+      }
+      transactions: {
+        Row: {
+          amount: number
+          category: string
+          created_at: string
+          id: string
+          kind: string
+          note: string | null
+          occurred_on: string
+          payment_method: string
+          recurring: boolean
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          category: string
+          created_at?: string
+          id?: string
+          kind: string
+          note?: string | null
+          occurred_on?: string
+          payment_method?: string
+          recurring?: boolean
+          user_id?: string
+        }
+        Update: {
+          amount?: number
+          category?: string
+          created_at?: string
+          id?: string
+          kind?: string
+          note?: string | null
+          occurred_on?: string
+          payment_method?: string
+          recurring?: boolean
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
