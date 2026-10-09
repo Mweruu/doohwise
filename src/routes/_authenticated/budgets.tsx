@@ -119,9 +119,9 @@ function SpendingPlan() {
   }, [profile]);
   const savings = Math.max(0, 100 - needs - wants);
   const cur = profile?.currency ?? "KES";
-  const save = async () => {
+  const save = async (): Promise<void> => {
     const { error } = await supabase.from("profiles").update({ monthly_income: income, needs_pct: needs, wants_pct: wants, savings_pct: savings }).eq("id", profile!.id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     qc.invalidateQueries({ queryKey: ["profile"] });
     toast.success("Plan saved");
   };
@@ -140,8 +140,8 @@ function SpendingPlan() {
         <PlanBox title="Savings" pct={savings} amount={(income * savings) / 100} cur={cur} tone="bg-success-soft" note="Emergency fund, goals, investing" />
       </div>
       <div className="mt-6 grid gap-6 sm:grid-cols-2">
-        <div><Label>Needs: {needs}%</Label><Slider className="mt-3" value={[needs]} min={20} max={80} step={5} onValueChange={([v]) => setNeeds(Math.min(v, 100 - wants))} /></div>
-        <div><Label>Wants: {wants}%</Label><Slider className="mt-3" value={[wants]} min={0} max={60} step={5} onValueChange={([v]) => setWants(Math.min(v, 100 - needs))} /></div>
+        <div><Label>Needs: {needs}%</Label><Slider className="mt-3" value={[needs]} min={20} max={80} step={5} onValueChange={([v]) => setNeeds(Math.min(v ?? 50, 100 - wants))} /></div>
+        <div><Label>Wants: {wants}%</Label><Slider className="mt-3" value={[wants]} min={0} max={60} step={5} onValueChange={([v]) => setWants(Math.min(v ?? 30, 100 - needs))} /></div>
       </div>
       <Button className="mt-6 rounded-full" onClick={save}>Save my plan</Button>
     </Card>

@@ -18,23 +18,23 @@ export function Onboarding({ profile }: { profile: Profile }) {
   const [currency, setCurrency] = useState(profile.currency || "KES");
   const [majors, setMajors] = useState<string[]>(["Rent/Housing", "Food", "Transport"]);
   const [save, setSave] = useState("");
-  const [goal, setGoal] = useState(GOALS[0]);
+  const [goal, setGoal] = useState<string>(GOALS[0]!);
   const [busy, setBusy] = useState(false);
 
-  async function finish() {
+  async function finish(): Promise<void> {
     setBusy(true);
     const inc = Number(income) || 0;
     const sv = Number(save) || Math.round(inc * 0.2);
-    const { error } = await supabase.from("profiles").update({ monthly_income: inc, currency, savings_target: sv, main_goal: goal, onboarded: true }).eq("id", profile.id);
+    const { error } = await supabase.from("profiles").update({ monthly_income: inc, currency, savings_target: sv, main_goal: goal ?? null, onboarded: true }).eq("id", profile.id);
     if (!error && inc > 0) {
       const budgets = majors.map((c) => ({ category: c, amount: Math.round((inc * (DEFAULT_SHARE[c] ?? 0.05)) / 100) * 100 }));
       await supabase.from("budgets").upsert(budgets, { onConflict: "user_id,category" });
-      if (sv > 0 && goal.includes("emergency")) {
+      if (sv > 0 && (goal ?? "").includes("emergency")) {
         await supabase.from("goals").insert({ name: "Emergency fund", target: inc * 3, saved: 0 });
       }
     }
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Your starter budget is ready 🎉");
     qc.invalidateQueries();
   }
@@ -66,7 +66,7 @@ export function Onboarding({ profile }: { profile: Profile }) {
       body: <Chips options={GOALS} selected={[goal]} onToggle={setGoal} />,
     },
   ];
-  const s = steps[step];
+  const s = steps[step]!;
   const last = step === steps.length - 1;
 
   return (

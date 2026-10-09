@@ -17,7 +17,7 @@ const Ctx = createContext<{ open: (opts?: { kind?: Kind; edit?: Transaction }) =
 export const useQuickAdd = () => useContext(Ctx);
 
 export function QuickAddProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState<{ open: boolean; kind: Kind; edit?: Transaction }>({ open: false, kind: "expense" });
+  const [state, setState] = useState<{ open: boolean; kind: Kind; edit?: Transaction | undefined }>({ open: false, kind: "expense" });
   return (
     <Ctx.Provider value={{ open: (o) => setState({ open: true, kind: o?.edit?.kind as Kind ?? o?.kind ?? "expense", edit: o?.edit }) }}>
       {children}
@@ -32,7 +32,7 @@ export function QuickAddProvider({ children }: { children: ReactNode }) {
   );
 }
 
-function TxForm({ initialKind, edit, onDone }: { initialKind: Kind; edit?: Transaction; onDone: () => void }) {
+function TxForm({ initialKind, edit, onDone }: { initialKind: Kind; edit?: Transaction | undefined; onDone: () => void }) {
   const qc = useQueryClient();
   const [kind, setKind] = useState<Kind>(initialKind);
   const [amount, setAmount] = useState(edit ? String(edit.amount) : "");

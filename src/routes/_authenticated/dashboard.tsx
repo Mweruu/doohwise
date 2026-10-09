@@ -198,7 +198,7 @@ function Flow({ label, value, arrow }: { label: string; value: string; arrow?: b
   );
 }
 
-function Stat({ label, value, icon, hint }: { label: string; value: string; icon?: React.ReactNode; hint?: string }) {
+function Stat({ label, value, icon, hint }: { label: string; value: string; icon?: React.ReactNode; hint?: string | undefined }) {
   return (
     <Card className="p-4">
       <div className="flex items-center justify-between"><p className="text-xs font-medium text-muted-foreground">{label}</p>{icon}</div>

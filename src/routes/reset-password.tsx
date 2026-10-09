@@ -22,12 +22,12 @@ function ResetPage() {
   const [pw, setPw] = useState("");
   const [busy, setBusy] = useState(false);
   const navigate = useNavigate();
-  async function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent): Promise<void> {
     e.preventDefault();
     setBusy(true);
     const { error } = await supabase.auth.updateUser({ password: pw });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Password updated");
     navigate({ to: "/dashboard" });
   }
