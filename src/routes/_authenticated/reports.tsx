@@ -9,9 +9,9 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export const Route = createFileRoute("/_authenticated/reports")({
   head: () => ({
     meta: [
-      { title: "Reports — PesaPlan" },
+      { title: "Reports — DoohWise" },
       { name: "description", content: "Simple charts of your spending, income and savings over time." },
-      { property: "og:title", content: "Reports — PesaPlan" },
+      { property: "og:title", content: "Reports — DoohWise" },
       { property: "og:description", content: "See your money over time." },
     ],
   }),

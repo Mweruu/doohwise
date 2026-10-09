@@ -6,9 +6,9 @@ import { Card, Meter, PageHeader } from "@/components/app/ui-bits";
 export const Route = createFileRoute("/_authenticated/insights")({
   head: () => ({
     meta: [
-      { title: "Insights — PesaPlan" },
+      { title: "Insights — DoohWise" },
       { name: "description", content: "Friendly tips and your financial health, based on your spending." },
-      { property: "og:title", content: "Insights — PesaPlan" },
+      { property: "og:title", content: "Insights — DoohWise" },
       { property: "og:description", content: "Your friendly money coach." },
     ],
   }),

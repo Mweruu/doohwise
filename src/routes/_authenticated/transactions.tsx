@@ -14,9 +14,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 export const Route = createFileRoute("/_authenticated/transactions")({
   head: () => ({
     meta: [
-      { title: "Transactions — PesaPlan" },
+      { title: "Transactions — DoohWise" },
       { name: "description", content: "Search, filter, edit and delete your income and expenses." },
-      { property: "og:title", content: "Transactions — PesaPlan" },
+      { property: "og:title", content: "Transactions — DoohWise" },
       { property: "og:description", content: "All your money in and out." },
     ],
   }),

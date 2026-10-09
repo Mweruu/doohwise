@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "PesaPlan — Understand your money, spend better, save more" },
+      { title: "DoohWise — Understand your money, spend better, save more" },
       { name: "description", content: "Track spending, plan budgets, pay bills on time and grow your savings with a friendly money coach. Built for Kenya." },
-      { property: "og:title", content: "PesaPlan — Your friendly money coach" },
+      { property: "og:title", content: "DoohWise — Your friendly money coach" },
       { property: "og:description", content: "Track spending, plan budgets and grow your savings — without the stress." },
     ],
   }),
@@ -32,7 +32,7 @@ function Landing() {
     <div className="min-h-screen">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 md:px-8">
         <span className="flex items-center gap-2 text-lg font-bold">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-hero text-primary-foreground"><Wallet className="h-5 w-5" /></span>PesaPlan
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-hero text-primary-foreground"><Wallet className="h-5 w-5" /></span>DoohWise
         </span>
         <Button asChild variant="ghost" className="rounded-full"><Link to="/auth">Sign in</Link></Button>
       </header>
@@ -40,7 +40,7 @@ function Landing() {
         <div>
           <p className="inline-block rounded-full bg-teal-soft px-3 py-1 text-sm font-semibold">Free money coach in your pocket</p>
           <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] md:text-6xl">Help me understand my money, spend better, <span className="text-primary">and save more.</span></h1>
-          <p className="mt-5 max-w-lg text-lg text-muted-foreground">PesaPlan shows where your money goes, keeps your bills on track and cheers you on as you save.</p>
+          <p className="mt-5 max-w-lg text-lg text-muted-foreground">DoohWise shows where your money goes, keeps your bills on track and cheers you on as you save.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" className="rounded-full px-8 shadow-float"><Link to="/auth">Get started — it's free</Link></Button>
           </div>

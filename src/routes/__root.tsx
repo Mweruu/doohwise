@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "PesaPlan — Understand your money, spend better, save more" },
+      { title: "DoohWise — Understand your money, spend better, save more" },
       { name: "description", content: "A friendly money app to track spending, plan budgets and grow your savings." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

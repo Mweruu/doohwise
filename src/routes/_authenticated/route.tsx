@@ -50,7 +50,7 @@ function Logo() {
   return (
     <Link to="/dashboard" className="flex items-center gap-2 font-bold text-lg">
       <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-hero text-primary-foreground"><Wallet className="h-5 w-5" /></span>
-      PesaPlan
+      DoohWise
     </Link>
   );
 }

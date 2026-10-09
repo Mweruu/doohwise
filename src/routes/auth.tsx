@@ -12,10 +12,10 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — PesaPlan" },
-      { name: "description", content: "Sign in or create your free PesaPlan account." },
-      { property: "og:title", content: "Sign in — PesaPlan" },
-      { property: "og:description", content: "Sign in or create your free PesaPlan account." },
+      { title: "Sign in — DoohWise" },
+      { name: "description", content: "Sign in or create your free DoohWise account." },
+      { property: "og:title", content: "Sign in — DoohWise" },
+      { property: "og:description", content: "Sign in or create your free DoohWise account." },
     ],
   }),
   component: AuthPage,
@@ -66,7 +66,7 @@ function AuthPage() {
   return (
     <div className="grid min-h-screen md:grid-cols-2">
       <div className="hidden flex-col justify-between bg-hero p-12 text-primary-foreground md:flex">
-        <Link to="/" className="flex items-center gap-2 text-lg font-bold"><Wallet /> PesaPlan</Link>
+        <Link to="/" className="flex items-center gap-2 text-lg font-bold"><Wallet /> DoohWise</Link>
         <div>
           <h2 className="text-4xl font-bold leading-tight">Understand your money.<br />Spend better. Save more.</h2>
           <p className="mt-4 max-w-md opacity-90">Friendly budgeting built for real life — M-Pesa, matatu fare, chama and all.</p>
@@ -98,7 +98,7 @@ function AuthPage() {
           <div className="mt-6 space-y-2 text-center text-sm">
             {mode === "signin" && <button className="text-primary hover:underline" onClick={() => setMode("forgot")}>Forgot password?</button>}
             <p className="text-muted-foreground">
-              {mode === "signup" ? "Already have an account? " : "New to PesaPlan? "}
+              {mode === "signup" ? "Already have an account? " : "New to DoohWise? "}
               <button className="font-semibold text-primary hover:underline" onClick={() => setMode(mode === "signup" ? "signin" : "signup")}>
                 {mode === "signup" ? "Sign in" : "Create an account"}
               </button>
