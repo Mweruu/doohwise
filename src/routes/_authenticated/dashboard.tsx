@@ -13,9 +13,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
-      { title: "Dashboard — PesaPlan" },
+      { title: "Dashboard — DoohWise" },
       { name: "description", content: "Your balance, spending, savings and upcoming bills at a glance." },
-      { property: "og:title", content: "Dashboard — PesaPlan" },
+      { property: "og:title", content: "Dashboard — DoohWise" },
       { property: "og:description", content: "Your money at a glance." },
     ],
   }),

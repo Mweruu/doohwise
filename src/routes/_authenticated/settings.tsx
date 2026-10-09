@@ -15,9 +15,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 export const Route = createFileRoute("/_authenticated/settings")({
   head: () => ({
     meta: [
-      { title: "Settings — PesaPlan" },
+      { title: "Settings — DoohWise" },
       { name: "description", content: "Manage your profile, currency and account." },
-      { property: "og:title", content: "Settings — PesaPlan" },
+      { property: "og:title", content: "Settings — DoohWise" },
       { property: "og:description", content: "Your profile and preferences." },
     ],
   }),

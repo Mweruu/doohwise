@@ -14,9 +14,9 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 export const Route = createFileRoute("/_authenticated/goals")({
   head: () => ({
     meta: [
-      { title: "Savings goals — PesaPlan" },
+      { title: "Savings goals — DoohWise" },
       { name: "description", content: "Set savings goals and watch your progress grow." },
-      { property: "og:title", content: "Savings goals — PesaPlan" },
+      { property: "og:title", content: "Savings goals — DoohWise" },
       { property: "og:description", content: "Save for what matters." },
     ],
   }),
