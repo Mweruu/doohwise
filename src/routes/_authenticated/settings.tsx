@@ -37,10 +37,10 @@ function SettingsPage() {
     if (profile) { setName(profile.display_name ?? ""); setCurrency(profile.currency); setIncome(String(profile.monthly_income)); setTarget(String(profile.savings_target)); }
   }, [profile]);
 
-  async function save(e: React.FormEvent) {
+  async function save(e: React.FormEvent): Promise<void> {
     e.preventDefault();
     const { error } = await supabase.from("profiles").update({ display_name: name, currency, monthly_income: Number(income) || 0, savings_target: Number(target) || 0 }).eq("id", profile!.id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     qc.invalidateQueries({ queryKey: ["profile"] });
     toast.success("Profile saved");
   }

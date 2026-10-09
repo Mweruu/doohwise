@@ -72,11 +72,11 @@ function GoalCard({ g, cur }: { g: Goal; cur: string }) {
   const months = g.deadline ? Math.max(1, Math.ceil((new Date(g.deadline).getTime() - Date.now()) / (1000 * 60 * 60 * 24 * 30))) : null;
   const left = Math.max(0, Number(g.target) - Number(g.saved));
 
-  async function contribute() {
+  async function contribute(): Promise<void> {
     const v = Number(add);
     if (!v) return;
     const { error } = await supabase.from("goals").update({ saved: Number(g.saved) + v }).eq("id", g.id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     setAdd("");
     qc.invalidateQueries({ queryKey: ["goals"] });
     toast.success(Number(g.saved) + v >= Number(g.target) ? "Goal reached! Amazing work 🎉" : `Added ${formatMoney(v, cur)} — you're getting closer!`);
